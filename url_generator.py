@@ -112,6 +112,22 @@ class QuickURLApp:
         templates_frame = ttk.LabelFrame(main_frame, text="URL Templates", padding="10")
         templates_frame.pack(fill=tk.BOTH, expand=True, pady=(0, 10))
         
+        # Buttons above template area (horizontal, right-aligned)
+        button_frame = ttk.Frame(templates_frame)
+        button_frame.pack(fill=tk.X, pady=(0, 10))
+        
+        self.load_templates_btn = ttk.Button(button_frame, text="📂 Load Templates", 
+                                            command=self.load_templates_dialog)
+        self.load_templates_btn.pack(side=tk.RIGHT, padx=(5, 0))
+        
+        self.save_templates_btn = ttk.Button(button_frame, text="💾 Save Templates", 
+                                            command=self.save_templates)
+        self.save_templates_btn.pack(side=tk.RIGHT, padx=(5, 0))
+        
+        self.add_btn = ttk.Button(button_frame, text="+ Add Template", 
+                                  command=self.add_template_row)
+        self.add_btn.pack(side=tk.RIGHT)
+        
         # Scrollable container for template rows
         canvas = tk.Canvas(templates_frame, height=200)
         scrollbar = ttk.Scrollbar(templates_frame, orient="vertical", command=canvas.yview)
@@ -127,22 +143,6 @@ class QuickURLApp:
         
         canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
-        
-        # Add/Remove buttons (stacked vertically to save horizontal space)
-        button_frame = ttk.Frame(templates_frame)
-        button_frame.pack(fill=tk.Y, side=tk.RIGHT, padx=(10, 0))
-        
-        self.add_btn = ttk.Button(button_frame, text="+ Add Template", 
-                                  command=self.add_template_row, width=18)
-        self.add_btn.pack(pady=2)
-        
-        self.save_templates_btn = ttk.Button(button_frame, text="💾 Save Templates", 
-                                            command=self.save_templates, width=18)
-        self.save_templates_btn.pack(pady=2)
-        
-        self.load_templates_btn = ttk.Button(button_frame, text="📂 Load Templates", 
-                                            command=self.load_templates_dialog, width=18)
-        self.load_templates_btn.pack(pady=2)
         
         # Generate button
         generate_frame = ttk.Frame(main_frame)
