@@ -199,7 +199,7 @@ class QuickURLApp:
             self.template_rows.append(row)
     
     def save_templates(self):
-        """Saves current templates to JSON file."""
+        """Saves current templates to JSON file with custom name."""
         templates_data = []
         for row in self.template_rows:
             function_name, template = row.get_data()
@@ -213,11 +213,23 @@ class QuickURLApp:
             messagebox.showwarning("Warning", "No templates to save!")
             return
         
+        # Open save dialog with default filename
+        filename = filedialog.asksaveasfilename(
+            title="Save Templates",
+            initialdir=self.config_dir,
+            initialfile="templates.json",
+            defaultextension=".json",
+            filetypes=[("JSON files", "*.json"), ("All files", "*.*")]
+        )
+        
+        if not filename:
+            return  # User cancelled
+        
         try:
-            os.makedirs(self.config_dir, exist_ok=True)
-            with open(self.templates_file, 'w') as f:
+            os.makedirs(os.path.dirname(filename), exist_ok=True)
+            with open(filename, 'w') as f:
                 json.dump(templates_data, f, indent=2)
-            messagebox.showinfo("Success", f"Saved {len(templates_data)} templates to:\n{self.templates_file}")
+            messagebox.showinfo("Success", f"Saved {len(templates_data)} templates to:\n{filename}")
         except Exception as e:
             messagebox.showerror("Error", f"Failed to save templates: {str(e)}")
     
