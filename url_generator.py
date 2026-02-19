@@ -128,21 +128,21 @@ class QuickURLApp:
         canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         
-        # Add/Remove buttons
+        # Add/Remove buttons (stacked vertically to save horizontal space)
         button_frame = ttk.Frame(templates_frame)
-        button_frame.pack(fill=tk.X, pady=(10, 0))
+        button_frame.pack(fill=tk.Y, side=tk.RIGHT, padx=(10, 0))
         
         self.add_btn = ttk.Button(button_frame, text="+ Add Template", 
-                                  command=self.add_template_row)
-        self.add_btn.pack(side=tk.LEFT, padx=5)
+                                  command=self.add_template_row, width=18)
+        self.add_btn.pack(pady=2)
         
         self.save_templates_btn = ttk.Button(button_frame, text="💾 Save Templates", 
-                                            command=self.save_templates)
-        self.save_templates_btn.pack(side=tk.LEFT, padx=5)
+                                            command=self.save_templates, width=18)
+        self.save_templates_btn.pack(pady=2)
         
         self.load_templates_btn = ttk.Button(button_frame, text="📂 Load Templates", 
-                                            command=self.load_templates_dialog)
-        self.load_templates_btn.pack(side=tk.LEFT, padx=5)
+                                            command=self.load_templates_dialog, width=18)
+        self.load_templates_btn.pack(pady=2)
         
         # Generate button
         generate_frame = ttk.Frame(main_frame)
