@@ -190,7 +190,7 @@ class QuickURLApp:
         """Adds default template rows."""
         defaults = [
             ("Health Check", "[your-tunnel-url]/health"),
-            ("Run Preview", "[your-tunnel-url]/preview?code=import%20SwiftUI%0A%0Astruct%20ContentView%3A%20View%20%7B%0A%20%20%20%20var%20body%3A%20some%20View%20%7B%0A%20%20%20%20%20%20%20%20Text(%22Hello!%22)%0A%20%20%20%20%7D%0A%7D&device=iPhone%2016%20Pro"),
+            ("Run Preview", "[your-tunnel-url]/preview"),
         ]
         
         for function_name, template in defaults:
