@@ -124,7 +124,7 @@ class QuickURLApp:
                                             command=self.save_templates)
         self.save_templates_btn.pack(side=tk.RIGHT, padx=(5, 0))
         
-        self.add_btn = ttk.Button(button_frame, text="+ Add Template", 
+        self.add_btn = ttk.Button(button_frame, text="+ Add Function", 
                                   command=self.add_template_row)
         self.add_btn.pack(side=tk.RIGHT)
         
