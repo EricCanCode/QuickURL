@@ -119,8 +119,8 @@ pyinstaller --onefile --windowed url_generator.py
 
 ## License
 
-Free to use for any purpose.
+MIT License - Free to use for any purpose.
 
 ## Author
 
-Created for SwiftCodePlatform development workflow.
+Created by [EricCanCode](https://github.com/EricCanCode)
